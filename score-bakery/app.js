@@ -52,8 +52,10 @@ app.get('/', (req, res) => {
 app.use('/', require('./routes/login'));
 app.use('/', require('./routes/signup'));
 app.use('/', require('./routes/category'))
-app.use('/', require('./routes/admin'))
-app.use('/admin/signup', require('./routes/dashboard'))
+app.use('/', require('./routes/adminRoutes'))
+app.use('/admin/signup', require('./routes/dashboardRoutes'))
+app.use('/', require('./routes/productRoutes'))
+app.use('/', require('./routes/shoppingcartRoutes'))
 
 
 // catch 404 and forward to error handler
