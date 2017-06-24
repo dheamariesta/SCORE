@@ -1,0 +1,102 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Dashboard
+    link(rel='stylesheet', type='text/css', href='/css/dashboard.css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet')
+    link(href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css', rel='stylesheet', media='screen')
+  body
+    .row
+      .col-md-2
+        .row.heading
+          h3#dashboard DASHBOARD
+        .row.icon
+          .col-md-3
+            img(src='/images/Product_icon.png')
+          .col-md-9
+            h4 Products
+        .row.icon
+          .col-md-3
+            img(src='/images/category_icon.png')
+          .col-md-9
+            h4 Categories
+        .row.icon
+          .col-md-3
+            img(src='/images/Order_icon.png')
+          .col-md-9
+            h4 Order
+        .row.icon
+          .col-md-3
+            img(src='/images/account_icon.png')
+          .col-md-9
+            h4 Account
+        .row.buffer
+        .row.user
+          .col-md-3
+          .col-md-6
+            img(src='/images/account_icon.png')
+            p Admin 1
+          .col-md-3
+      .col-md-10
+        h1 Products
+        .row
+          .col-md-4
+            .btn-group
+              button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                | Sort by Name 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='#') Sort by SKU
+                li
+                  a(href='#') Sort by Price
+                li
+                  a(href='#') Sort by Category
+          .col-md-4
+            .btn-group
+              button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                | Ascending 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='#') Descending
+          .col-md-4
+            // Standard button
+            button#add.btn.btn-default(type='button') Add new Product
+        .row
+          #editform.modal.fade(tabindex='-1', role='dialog')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                  h4.modal-title Add new product
+                .modal-body
+                  .form-group
+                    label(for='name') Product SKU
+                    input#name.form-control(type='text', placeholder='SKU')
+                  .form-group
+                    label(for='color') Product Name
+                    input#color.form-control(type='text', placeholder='Name')
+                  .form-group
+                    label(for='price') Price
+                    input#price.form-control(type='number', placeholder='Price')
+                    input#id.form-control(type='hidden')
+                  .btn-group
+                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                      | Categories 
+                      span.caret
+                    ul.dropdown-menu(role='menu')
+                      li
+                        a(href='#') Pastries
+                      li
+                        a(href='#') Bread
+                      li
+                        a(href='#') Cakes
+                .modal-footer
+                  button.btn.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-primary.submit(type='button') Save changes
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='./js/script.js')

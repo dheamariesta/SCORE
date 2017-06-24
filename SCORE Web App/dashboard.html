@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="row heading">
+          <h3 id="dashboard">DASHBOARD</h3>
+        </div>
+        <div class="row icon">
+          <div class="col-md-3">
+            <img src="./images/Product_icon.png" />
+          </div>
+          <div class="col-md-9">
+            <h4>Products</h4>
+          </div>
+        </div>
+        <div class="row icon">
+          <div class="col-md-3">
+            <img src="./images/category_icon.png" />
+          </div>
+          <div class="col-md-9">
+            <h4>Categories</h4>
+          </div>
+        </div>
+        <div class="row icon">
+          <div class="col-md-3">
+            <img src="./images/Order_icon.png" />
+          </div>
+          <div class="col-md-9">
+            <h4>Order</h4>
+          </div>
+        </div>
+        <div class="row icon">
+          <div class="col-md-3">
+            <img src="./images/Account_icon.png" />
+          </div>
+          <div class="col-md-9">
+            <h4>Account</h4>
+          </div>
+        </div>
+        <div class="row buffer">
+        </div>
+        <div class="row user">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-6">
+            <img src="./images/Account_icon.png" />
+            <p>Admin 1</p>
+          </div>
+          <div class="col-md-3">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <h1>Products</h1>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Sort by Name <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Sort by SKU</a></li>
+                <li><a href="#">Sort by Price</a></li>
+                <li><a href="#">Sort by Category</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Ascending <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Descending</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <!-- Standard button -->
+            <button type="button" class="btn btn-default" id="add">Add new Product</button>
+
+          </div>
+
+        </div>
+        <div class="row">
+          <div id="editform" tabindex="-1" role="dialog" class="modal fade">
+            <div role="document" class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                  <h4 class="modal-title">Add new product</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="name">Product SKU</label>
+                    <input id="name" type="text" placeholder="SKU" class="form-control"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="color">Product Name</label>
+                    <input id="color" type="text" placeholder="Name" class="form-control"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input id="price" type="number" placeholder="Price" class="form-control"/>
+                    <input id="id" type="hidden" class="form-control"/>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      Categories <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Pastries</a></li>
+                      <li><a href="#">Bread</a></li>
+                      <li><a href="#">Cakes</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                  <button type="button" class="btn btn-primary submit">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./js/script.js">
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title Login Page
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    link(rel='stylesheet', type='text/css', href='/css/login.css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet')
+    link(href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css', rel='stylesheet', media='screen')
+  body
+    header
+      .col-md-1
+      a(href='/')
+        img(src='/images/SCORElogo.jpg')
+    .row.green
+      .col-md-1
+      .col-md-3
+        .input
+          form(action='/login', autocomplete='off', method='POST')
+            label#login Login
+            .form-group
+              label(for='exampleInputEmail1') Username
+              input#exampleInputEmail3.form-control(type='text', placeholder='Username', name='username')
+            .form-group
+              label(for='exampleInputPassword1') Password
+              input#exampleInputPassword3.form-control(type='password', placeholder='Password', name='password')
+            button.btn.btn-default(type='submit') Submit
+    .row.details
+      .col-md-1
+      .contact
+        p
+          | Contact Person:
+          br
+          |             Mr John LOW
+          br
+          |             +65 1234 5678
+          br
+          |             email@email.com
+      .contact
+        p
+          b COMPANY
+          br
+          br
+          |             ABOUT US
+          br
+          |             HOW TO ORDER
+          br
+          |             CAREER
+      .privacy
+        p
+          | PRIVACY POLICY | TERMS & CONDITIONS
+          br
+          |             COPYRIGHT © 2017 SCORE BAKERY PTE LTD. ALL RIGHTS RESERVED
+      .halal
+        img(src='/images/halal.jpg', width='60px', height='60px')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js')

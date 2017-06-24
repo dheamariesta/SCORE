@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/account.css"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+
+  <header>
+    <div class="col-md-3">
+      <a href="categorypastry.html"><img src="images/SCORElogo.jpg"/></a>
+    </div>
+    <div class="col-md-5">
+    </div>
+
+    <div class = "col-md-2 pastOrders">
+      <a href="shoppingbag.html">Shopping Cart</a>
+    </div>
+    <div class = "col-md-2 account">
+      <a href="account.html">Account</a>
+    </div>
+  </header>
+
+  <div class="row green">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="row">
+        <h2>Profile</h2>
+      </div>
+      <div class="row">
+          Name: Dhea Mariesta<br />
+          Username: @dheamariesta<br />
+          Email: dhea@email.com<br />
+          Phone: 65 11112222
+      </div>
+      <div class="row edit">
+        <input class="btn btn-default" id="edit" type="button" value="Edit profile">
+      </div>
+      <div class="row edit-form" id="formRowTpl">
+        <div class="col-md-5">
+          <div class="form-area">
+            <form role="form">
+            <br style="clear:both">
+                        <h4 style="margin-bottom: 25px; text-align: center;">Please fill in this contact form to edit your account or email us at email@email.com</h4>
+        				<div class="form-group">
+    						<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+    					</div>
+    					<div class="form-group">
+    						<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+    					</div>
+    					<div class="form-group">
+    						<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+    					</div>
+    					<div class="form-group">
+    						<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+    					</div>
+                        <div class="form-group">
+                        <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+                            <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+                        </div>
+
+            <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+            </form>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row details">
+      <div class="col-md-1">
+      </div>
+      <div class="contact">
+          <p>Contact Person:<br>
+          Mr John LOW<br>
+          +65 1234 5678<br>
+          email@email.com</p>
+      </div>
+      <div class="contact">
+          <p><b>COMPANY</b><br><br>
+          ABOUT US<br>
+          HOW TO ORDER<br>
+          CAREER</p>
+      </div>
+      <div class="privacy">
+          <p>PRIVACY POLICY | TERMS &amp; CONDITIONS<br>
+          COPYRIGHT &copy; 2017 SCORE BAKERY PTE LTD. ALL RIGHTS RESERVED</p>
+      </div>
+      <div class="halal">
+          <img src="images/halal.jpg" width="60px" height="60px"/>
+      </div>
+  </div>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script>
+    $('#edit').on('click', function(){
+      var form = document.getElementById('formRowTpl');
+      if(form.style.display === 'none'){
+        form.style.display = 'block';
+      } else {
+        form.style.display = 'none';
+      }
+    })
+  </script>
+
+</body>
+</html>
