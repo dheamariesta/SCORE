@@ -6,7 +6,6 @@ var localStrategy = require('passport-local').Strategy;
 // var validator = require('validator');
 
 // Load user model
-var User = require('../models/user');
 var Admin = require('../models/admin');
 
 module.exports = function( passport ) {
@@ -18,13 +17,13 @@ module.exports = function( passport ) {
 
   // Deserialize user
   passport.deserializeUser(function(id, done){
-      User.findById(id, function(err, user){
+      Admin.findById(id, function(err, user){
         done(err, user);
       });
   });
 
   // Passport signup
-  passport.use('local-signup', new localStrategy({
+  passport.use('admin-signup', new localStrategy({
       typeField : 'type',
       usernameField : 'username',
       emailField : 'email',
@@ -45,23 +44,23 @@ module.exports = function( passport ) {
         }
 
         process.nextTick(function(){
-          User.findOne( { 'username' : username }, function(err, user){
+          Admin.findOne( { 'username' : username }, function(err, user){
             if(err){
               return done(err);
             }
             if(user){
               return done(null, false, req.flash('loginMessage','That username is already in use'));
             }else{
-              var newUser = new User();
-              newUser.type = req.body.type;
-              newUser.username = username;
-              newUser.password = password;
-              newUser.email = req.body.email;
-              newUser.save(function(err){
+              var newAdmin = new Admin();
+              newAdmin.type = req.body.type;
+              newAdmin.username = username;
+              newAdmin.password = password;
+              newAdmin.email = req.body.email;
+              newAdmin.save(function(err){
                 if(err){
                   console.log(err);
                 }
-                return done(null, newUser, req.flash('loginMessage', 'Logged in successfully'));
+                return done(null, newAdmin, req.flash('loginMessage', 'Logged in successfully'));
               });
             }
           });
@@ -69,14 +68,14 @@ module.exports = function( passport ) {
     }));
 
   // Passport login
-  passport.use('local-login', new localStrategy({
+  passport.use('admin-login', new localStrategy({
       typeField: 'type',
       usernameField : 'username',
       passwordField : 'password',
       passReqToCallback: true
     },
     function( req, username, password, done){
-      User.findOne( {'username' : username}, function(err, user){
+      Admin.findOne( {'username' : username, 'type' : 'user' }, function(err, user){
         if(err){
           console.log('error')
           return done(err.message);
@@ -88,9 +87,8 @@ module.exports = function( passport ) {
             type: 'warning',
             message: 'sorry no one by that username'
           }));
-        } else if(user.type == 'user'){
-
-          console.log('is user', user.username, user.type)
+        } else {
+          console.log('is user')
           user.comparePassword(password, function(err, isMatch){
 
             if(isMatch){
@@ -100,18 +98,6 @@ module.exports = function( passport ) {
 
             return done(null,false, req.flash('loginMessage', 'sorry wrong password'));
           })
-        } else {
-          console.log(user.type);
-          user.comparePassword(password, function(err, isMatch){
-
-            if(isMatch){
-              console.log('admin has logged in')
-              return done(null, user, req.flash('loginMessage', 'admin login Successful'));
-            }
-
-            return done(null,false, req.flash('loginMessage', 'sorry wrong password'));
-          })
-
         }
 
 

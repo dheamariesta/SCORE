@@ -26,6 +26,7 @@ app.use(session( {secret: 'session-name'} ));
 app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passportConfig')(passport);
+require('./config/adminConfig')(passport);
 app.use(flash());
 
 // view engine setup
@@ -53,7 +54,7 @@ app.use('/', require('./routes/login'));
 app.use('/', require('./routes/signup'));
 app.use('/', require('./routes/category'))
 app.use('/', require('./routes/adminRoutes'))
-app.use('/admin/signup', require('./routes/dashboardRoutes'))
+app.use('/', require('./routes/dashboardRoutes'))
 app.use('/', require('./routes/productRoutes'))
 app.use('/', require('./routes/shoppingcartRoutes'))
 app.use('/', require('./routes/accountRoutes'))
