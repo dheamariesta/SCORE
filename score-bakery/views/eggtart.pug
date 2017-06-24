@@ -15,7 +15,11 @@ html
       .col-md-2.pastOrders
         a(href='/shoppingcart') Shopping Cart
       .col-md-2.account
-        a(href='/account') Account
+        ul
+          if user
+            a(href='/account')
+              span= user.username
+              i.caret
     .row.green
       .col-md-1
       .col-md-10
