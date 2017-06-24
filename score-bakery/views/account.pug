@@ -15,20 +15,26 @@ html
       .col-md-2.pastOrders
         a(href='/shoppingcart') Shopping Cart
       .col-md-2.account
-        a(href='/account') Account
+        ul
+          if user
+            a(href='/account')
+              span= user.username
+              i.caret
     .row.green
       .col-md-1
       .col-md-10
         .row
           h2 Profile
-        .row
-          | Name: Dhea Mariesta
+        #user-details.row
+          | Name: #{user.name}
           br
-          |           Username: @dheamariesta
+          | Username: #{user.username}
           br
-          |           Email: dhea@email.com
+          | Email: #{user.email}
           br
-          |           Phone: 65 11112222
+          | Phone: #{user.phone}
+  
+
         .row.edit
           input#edit.btn.btn-default(type='button', value='Edit profile')
         #formRowTpl.row.edit-form
@@ -81,12 +87,4 @@ html
         img(src='/images/halal.jpg', width='60px', height='60px')
     script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     script(src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js')
-    script.
-      $('#edit').on('click', function(){
-      var form = document.getElementById('formRowTpl');
-      if(form.style.display === 'none'){
-      form.style.display = 'block';
-      } else {
-      form.style.display = 'none';
-      }
-      })
+    script(src='/javascripts/accountscript.js')

@@ -56,6 +56,7 @@ app.use('/', require('./routes/adminRoutes'))
 app.use('/admin/signup', require('./routes/dashboardRoutes'))
 app.use('/', require('./routes/productRoutes'))
 app.use('/', require('./routes/shoppingcartRoutes'))
+app.use('/', require('./routes/accountRoutes'))
 
 
 // catch 404 and forward to error handler
