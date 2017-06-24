@@ -13,7 +13,8 @@ function isLoggedIn (req, res, next) {
 router.get('/shoppingcart', isLoggedIn, (req, res) => {
   //console.log(req.user);
   res.render('shoppingcart', {
-    message: req.flash('loginMessage')
+    message: req.flash('loginMessage'),
+    user: req.user
   })
 }, userController.getUserDetails);
 

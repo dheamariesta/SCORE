@@ -13,7 +13,8 @@ function isLoggedIn (req, res, next) {
 router.get('/product/eggtart', isLoggedIn, (req, res) => {
   //console.log(req.user);
   res.render('eggtart', {
-    message: req.flash('loginMessage')
+    message: req.flash('loginMessage'),
+    user: req.user
   })
 }, userController.getUserDetails);
 

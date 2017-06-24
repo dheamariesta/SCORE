@@ -46,7 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
   res.render('index', {
-    title: 'SCORE Bakery'
+    title: 'SCORE Bakery',
   })
 })
 app.use('/', require('./routes/login'));

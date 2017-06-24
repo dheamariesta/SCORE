@@ -12,7 +12,8 @@ function isLoggedIn (req, res, next) {
 router.get('/category', isLoggedIn, function(req, res) {
   //console.log(req.user);
   res.render('category', {
-    message: req.flash('loginMessage')
+    message: req.flash('loginMessage'),
+    user: req.user
   })
 }, userController.getUserDetails)
 
