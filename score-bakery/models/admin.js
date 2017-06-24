@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
-const userSchema = new mongoose.Schema({
-  type: String, 
+const adminSchema = new mongoose.Schema({
+  type: String,
   username: { type: String, unique: true },
   email: String,
   password: String
@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
 /**
  * Password hash middleware.
  */
-userSchema.pre('save', function save(next) {
+adminSchema.pre('save', function save(next) {
 
   console.log('pre save hook');
   const user = this;
@@ -30,11 +30,11 @@ userSchema.pre('save', function save(next) {
   });
 });
 
-userSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
+adminSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
     cb(err, isMatch);
   });
 };
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+const Admin = mongoose.model('Admin', adminSchema);
+module.exports = Admin;

@@ -2,20 +2,20 @@ let User = require ('../models/user');
 let passport = require('passport')
 
 let userController = {
-  getLogin: (req, res) => {
+  getLogin: (req, res, next) => {
     res.render('login', {
       title: 'Login'
     })
   },
 
-  postLogin: (req, res) => {
+  postLogin: (req, res, next) => {
     var userLoginStrategy = passport.authenticate('local-login', {
       successRedirect: '/category',
       failureRedirect: '/login',
       failureFlash: false
     })
     console.log('logged in user: ', userLoginStrategy);
-    return userLoginStrategy(req, res)
+    return userLoginStrategy(req, res, next)
   },
 
   getSignup: (req, res, next) => {

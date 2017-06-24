@@ -14,12 +14,12 @@ html
       .col-md-1
       .col-md-3
         .input
-          form(action='/signup', autocomplete='off', method='POST')
+          form(action='/admin/signup', autocomplete='off', method='POST')
             label#login Sign Up
             .form-group
               label(for='exampleInputEmail1') Username
               input.form-control(type='text', placeholder='Username', name='username')
-              input(type='hidden', value='user', name='type')
+              input(type='hidden', value='admin', name='type')
             .form-group
               label(for='exampleInputEmail1') Email address
               input#exampleInputEmail1.form-control(type='email', placeholder='Email', name='email')

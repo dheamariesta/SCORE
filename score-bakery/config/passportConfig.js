@@ -24,6 +24,7 @@ module.exports = function( passport ) {
 
   // Passport signup
   passport.use('local-signup', new localStrategy({
+      typeField : 'type',
       usernameField : 'username',
       emailField : 'email',
       passwordField : 'password',
@@ -51,6 +52,7 @@ module.exports = function( passport ) {
               return done(null, false, req.flash('loginMessage','That username is already in use'));
             }else{
               var newUser = new User();
+              newUser.type = req.body.type;
               newUser.username = username;
               newUser.password = password;
               newUser.email = req.body.email;
@@ -67,15 +69,16 @@ module.exports = function( passport ) {
 
   // Passport login
   passport.use('local-login', new localStrategy({
+      typeField: 'type',
       usernameField : 'username',
       passwordField : 'password',
       passReqToCallback: true
     },
     function( req, username, password, done){
-      User.findOne( {'username' : username }, function(err, user){
+      User.findOne( {'username' : username, 'type' : 'user' }, function(err, user){
         if(err){
           console.log('error')
-          return done(err);
+          return done(err.message);
         }
 
         if(!user){
@@ -100,6 +103,8 @@ module.exports = function( passport ) {
 
       });
     }));
+
+
 
 
 }
